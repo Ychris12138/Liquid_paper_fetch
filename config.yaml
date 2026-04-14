@@ -1,0 +1,96 @@
+general:
+  lookback_days: 14
+  max_records_per_source: 80
+
+filters:
+  keywords:
+    - Ice Nucleation in Water
+    - Supercooled Water
+    - supercooled water
+    - critical nucleus
+    - classical nucleation theory
+    - glass transition
+    - fragile strong thransition
+    - fragile-to-strong transition
+    - Amorphous Ice
+    - Glassy Water
+    - Amorphous Ice / Glassy Water
+  semantic_search:
+    enabled: true
+    query_expansion: true
+    model_name: "sentence-transformers/all-MiniLM-L6-v2"
+    similarity_threshold: 0.36
+    top_k: 120
+    min_hits: 15
+  journals:
+    issn:
+      - "1476-4687" # Nature
+      - "0036-8075" # Science
+      - "1476-1122" # Nature Materials
+      - "1745-2473" # Nature Physics
+      - "1755-4349" # Nature Chemistry
+      - "2375-2548" # Science Advances
+      - "2522-5820" # Nature Reviews Physics
+      - "2058-8437" # Nature Reviews Materials
+      - "2041-1723" # Nature Communications
+      - "0027-8424" # PNAS
+      - "1091-6490" # PNAS online
+      - "2160-3308" # PRX
+      - "0031-9007" # PRL
+      - "0002-7863" # JACS
+      - "1948-7185" # JPCL
+      - "1089-5647" # JPCB
+      - "1520-6106" # JPCB
+      - "0021-9606" # JCP
+      - "1089-7690" # JCP
+    titles:
+      - Nature
+      - Science
+      - Nature Physics
+      - Nature Materials
+      - Nature Chemistry
+      - Science Advances
+      - Nature Reviews Physics
+      - Nature Reviews Materials
+      - Nature Communications
+      - Proceedings of the National Academy of Sciences
+      - PNAS
+      - Physical Review X
+      - PRX
+      - Physical Review Letters
+      - PRL
+      - Physical Review X Life
+      - PRX Life
+      - Journal of the American Chemical Society
+      - JACS
+      - Journal of Physical Chemistry Letters
+      - JPCL
+      - Journal of Physical Chemistry B
+      - JPCB
+      - Journal of Chemical Physics
+      - JCP
+
+apis:
+  openalex:
+    enabled: true
+    base_url: "https://api.openalex.org"
+    mailto: ""
+  crossref:
+    enabled: true
+    base_url: "https://api.crossref.org"
+    mailto: ""
+  semanticscholar:
+    enabled: true
+    base_url: "https://api.semanticscholar.org/graph/v1"
+    api_key: ""
+
+llm:
+  enabled: true
+  endpoint: "https://openrouter.ai/api/v1/chat/completions"
+  api_key: ""
+  model: "google/gemma-2-9b-it:free"
+  timeout_sec: 60
+
+output:
+  report_dir: "reports"
+  report_prefix: "water_crystallization_weekly"
